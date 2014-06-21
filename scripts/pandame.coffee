@@ -1,3 +1,9 @@
+# Description:
+#   We love panda
+#
+# Commands:
+#   hubot panda
+
 tumblr = require "tumblrbot"
 
 SOURCES = [

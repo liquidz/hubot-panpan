@@ -1,3 +1,3 @@
 module.exports = (robot) ->
-    robot.hear /nullpo/, (msg) ->
-        msg.send "GA!"
+    robot.hear /ぬるぽ/, (msg) ->
+        msg.send "ガッ"

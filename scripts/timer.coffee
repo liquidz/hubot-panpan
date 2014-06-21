@@ -1,7 +1,7 @@
 cron = require("cron").CronJob
 
 SCHEDULES = {
-    "* 5 0 * * *": (say) -> say "PANDA!"
+    "* 13 0 * * *": (say) -> say "PANDA!"
 }
 
 module.exports = (robot) ->
@@ -11,6 +11,6 @@ module.exports = (robot) ->
     for t, f of SCHEDULES
         new cron t, () ->
             f say
-        , null, true
+        , null, true, "Japan/Tokyo"
 
 

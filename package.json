@@ -26,7 +26,8 @@
     "hubot-irc": "~0.2.7",
     "hubot-slack": "~2.1.0",
     "tumblrbot": "~0.1.0",
-    "cron": "~1.0.4"
+    "cron": "~1.0.4",
+    "time": "~0.11.0"
   },
   "engines": {
     "node": ">= 0.8.x",

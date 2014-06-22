@@ -4,16 +4,15 @@
 cron = require("cron").CronJob
 
 SCHEDULES = {
-    "0 15 11 * * *": (say) -> say "PANDA!"
+    "0 25 18 * * 6": () -> "aozora",
+    "0 55 18 * * 0": () -> "dash"
 }
 
 module.exports = (robot) ->
-    say = (msg) ->
-        robot.send {room: "#general"}, msg
-
     for t, f of SCHEDULES
         new cron t, () ->
-            f say
+            text = f()
+            robot.send {room: "#general"}, text
         , null, true, "Asia/Tokyo"
 
 

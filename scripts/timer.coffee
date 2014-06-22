@@ -1,11 +1,12 @@
 # Description:
 #   Timer utility
 
-cron = require("cron").CronJob
+cron   = require("cron").CronJob
+random = require('hubot').Response::random
 
 SCHEDULES = {
-    "0 25 18 * * 6": () -> "aozora",
-    "0 55 18 * * 0": () -> "dash"
+    "0 25 18 * * 6": () -> random ["青空レストラン始まるよ", "もう少しで青空レストラン"],
+    "0 55 18 * * 0": () -> random ["鉄腕ダッシュ始まるよ"]
 }
 
 module.exports = (robot) ->

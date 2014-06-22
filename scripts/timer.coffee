@@ -1,7 +1,7 @@
 cron = require("cron").CronJob
 
 SCHEDULES = {
-    "* 13 0 * * *": (say) -> say "PANDA!"
+    "0 13 0 * * *": (say) -> say "PANDA!"
 }
 
 module.exports = (robot) ->

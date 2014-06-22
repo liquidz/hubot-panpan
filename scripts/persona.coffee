@@ -12,3 +12,10 @@ module.exports = (robot) ->
 
     robot.respond /何.*食べ.*？/, (msg) ->
         msg.reply msg.random(["牛丼", "パスタ", "カレー", "寿司", "蕎麦", "うどん", "定食", "ファミレス", "ラーメン", "チャーハン", "餃子", "ハンバーグ", "竹", "笹", "タケノコ", "豆腐", "オムライス"])
+
+    robot.respond /おはよう/, (msg) ->
+        msg.reply msg.random(["おはよ", "おはよう", ".zZ", "あと5分。。", "むにゃむにゃ"])
+    robot.respond /おやすみ/, (msg) ->
+        msg.reply msg.random(["おやすみ", "おやちゅみ？"])
+    robot.hear /(眠い|ねむい)/, (msg) ->
+        msg.reply msg.random(["寝ろ", "もう寝よう"])

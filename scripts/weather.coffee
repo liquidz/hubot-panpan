@@ -14,10 +14,10 @@ module.exports = (robot) ->
         robot.http(WEATHER_URL).get() (err, res, body) ->
             w = JSON.parse(body)
             send "http://openweathermap.org/img/w/" + w.weather[0].icon + ".png"
-            send "max: " + conv(w.main.temp_max)
-            send "min: " + conv(w.main.temp_min)
+            send "最高気温: " + conv(w.main.temp_max)
+            send "最低気温: " + conv(w.main.temp_min)
 
-    robot.respond /tenki/, (msg) ->
+    robot.respond /(tenki|天気)/, (msg) ->
         print_weather()
 
     new cron "0 0 7 * * *", () ->

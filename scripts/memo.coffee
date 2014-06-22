@@ -2,29 +2,32 @@
 #   Memo utility
 #
 # Commands:
-#   memo del    - Forget remembered text
-#   memo <text> - Remember <text>
+#   メモ 削除   - Forget remembered text
+#   メモ 教えて - Remind remembered text
+#   メモ <text> - Remember <text>
 
 cron   = require("cron").CronJob
 random = require('hubot').Response::random
 
-REMEMBER_TEXTS  = ["覚えたよ"]
-FORGET_TEXTS    = ["deleted"]
-REMINDER_TEXTS  = ["remind"]
+REMEMBER_TEXTS  = ["おっけー", "覚えておくね", "覚えたよ", "あとで教えるね", "仕方ないから覚えてあげる"]
+FORGET_TEXTS    = ["消したよ", "忘れた。。", "忘れたよ", "なんだっけ？", "。。。"]
+REMINDER_TEXTS  = ["思い出して", "覚えてる？", "忘れてない？", "そういえば", "これどうするの？"]
 REMIND_SCHEDULE = "0 30 7,12,20 * * *"
 
 module.exports = (robot) ->
     randtext = (arr, text) ->
         random(arr) + ": " + text
 
-    robot.hear /memo (.+)$/, (msg) ->
+    robot.hear /メモ (.+)$/, (msg) ->
         text = msg.match[1]
         switch text
-            when "del"
+            when "削除"
                 text = robot.brain.data.memo
                 robot.brain.data.memo = null
                 robot.brain.save
                 msg.send randtext(FORGET_TEXTS, text)
+            when "教えて"
+                msg.send randtext(REMINDER_TEXTS, robot.brain.data.memo)
             else
                 robot.brain.data.memo = text
                 robot.brain.save

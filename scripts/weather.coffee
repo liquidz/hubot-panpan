@@ -20,6 +20,6 @@ module.exports = (robot) ->
     robot.respond /(tenki|天気)/, (msg) ->
         print_weather()
 
-    new cron "30 58 20 * * *", () ->
+    new cron "0 2 21 * * *", () ->
         print_weather()
     , null, true, "Asia/Tokyo"

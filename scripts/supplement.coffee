@@ -29,7 +29,7 @@ module.exports = (robot) ->
         robot.send {room: "#general"}, owner + ": " + random(SUPPLEMENT_TEXTS)
     , null, true, "Asia/Tokyo"
 
-    new cron "*/10 * * * * *", () ->
+    new cron "0 * * * * *", () ->
         if robot.brain.data.supplement_snooze
             robot.send {room: "#general"}, owner + ": " + random(SUPPLEMENT_REMINDER_TEXTS)
     , null, true, "Asia/Tokyo"

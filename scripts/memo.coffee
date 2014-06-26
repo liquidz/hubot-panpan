@@ -12,7 +12,7 @@ random = require('hubot').Response::random
 REMEMBER_TEXTS  = ["おっけー", "覚えておくね", "覚えたよ", "あとで教えるね", "仕方ないから覚えてあげる"]
 FORGET_TEXTS    = ["消したよ", "忘れた。。", "忘れたよ", "なんだっけ？", "。。。"]
 REMINDER_TEXTS  = ["思い出して", "覚えてる？", "忘れてない？", "そういえば", "これどうするの？"]
-REMIND_SCHEDULE = "0 30 7,12,20 * * *"
+REMIND_SCHEDULE = "0 30 7,12,18,20 * * *"
 
 module.exports = (robot) ->
     randtext = (arr, text) ->

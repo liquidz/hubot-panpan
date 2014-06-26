@@ -6,6 +6,18 @@ This version is designed to be deployed on [Heroku][heroku]. This README was gen
 
 [heroku]: http://www.heroku.com
 
+### Environment Variables
+
+ * Following environment variables are requierd.
+  * `HEROKU_URL`
+  * `HUBOT_OWNER`
+  * `HUBOT_SLACK_BOTNAME`
+  * `HUBOT_SLACK_TOKEN`
+  * `HUBOT_TUMBLR_API_KEY`
+  * `SLACK_TEAM`
+  * `TZ`
+
+
 ### Testing Hubot Locally
 
 You can test your hubot by running the following.

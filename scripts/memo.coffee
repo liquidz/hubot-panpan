@@ -20,18 +20,17 @@ module.exports = (robot) ->
 
     robot.hear /メモ (.+)$/, (msg) ->
         text = msg.match[1]
-        switch text
-            when "削除"
-                text = robot.brain.data.memo
-                robot.brain.data.memo = null
-                robot.brain.save
-                msg.send randtext(FORGET_TEXTS, text)
-            when "教えて"
-                msg.send randtext(REMINDER_TEXTS, robot.brain.data.memo)
-            else
-                robot.brain.data.memo = text
-                robot.brain.save
-                msg.send randtext(REMEMBER_TEXTS, text)
+        if text.match /(削除|消して|けして)/
+            text = robot.brain.data.memo
+            robot.brain.data.memo = null
+            robot.brain.save
+            msg.send randtext(FORGET_TEXTS, text)
+        else if text.match /(教えて|なんだっけ|何だっけ)/
+            msg.send randtext(REMINDER_TEXTS, robot.brain.data.memo)
+        else
+            robot.brain.data.memo = text
+            robot.brain.save
+            msg.send randtext(REMEMBER_TEXTS, text)
 
     new cron REMIND_SCHEDULE, () ->
         text = robot.brain.data.memo
